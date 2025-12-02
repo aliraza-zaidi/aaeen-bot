@@ -24,7 +24,7 @@ def clean_text(text):
     text = re.sub(r'Page \d+', '', text)
     return text.strip()
 
-def chunk_text(text, chunk_size=1000, overlap=200):    
+def chunk_text(text, chunk_size=500, overlap=200):    
     chunks = []
     start = 0
     text_length = len(text)
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         save_to_txt(raw_text, "raw_constitution_text.txt")                
         cleaned_text = clean_text(raw_text)
         save_to_txt(cleaned_text, "cleaned_constitution_text.txt")        
-        chunks = chunk_text(cleaned_text, chunk_size=1000, overlap=200)        
+        chunks = chunk_text(cleaned_text, chunk_size=500, overlap=200)        
         save_to_json(chunks, "constitution_chunks.json")
         print("Constitution processed successfully.")
     else:

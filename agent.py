@@ -2,13 +2,14 @@ from langchain.messages import SystemMessage, AIMessage, HumanMessage
 from langgraph.graph import StateGraph, END
 from langgraph.types import interrupt
 from langchain_core.documents import Document
+from dotenv import load_dotenv
 from state import AgentState
 from config import Config
 from utility import get_latest_user_input, route_step
 from rag import initialize_vector_store, vectorize
 from llm import initialize_llm
 
-
+load_dotenv()
 vector_store = initialize_vector_store()
 vectorize(vector_store)
 retriever = vector_store.as_retriever(search_kwargs={"k": Config.RETRIEVAL_K})

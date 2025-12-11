@@ -1,3 +1,5 @@
 __pycache__
 __init__.py
-./chroma_db
+chroma_db/
+./.ipynb_checkpoints
+./.langgraph_api
